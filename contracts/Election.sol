@@ -32,7 +32,7 @@ contract Election {
     }
     
     modifier inState(State _state) {
-        require(state == _state, "Wrong state");
+        require(state == _state, "Wrong state!");
         _;
     }
 
@@ -43,7 +43,7 @@ contract Election {
     }
     
     /**
-    * @dev this function registers a candidate, msg.sender will be candidate and msg.value should be 1 eth.
+    * @dev this function registers a candidate, msg.sender will be candidate and msg.value should equal the fee.
     * @notice this function registers a new candidate.
      */
     function payFee() public payable {
@@ -159,6 +159,12 @@ contract Election {
     */
     function getOwnerBalance() public view returns(uint) {
         return owner.balance;
+    }
+
+    function resetElection() private onlyOwner {
+        delete candidateAddresses;
+        state = State.Created;
+        
     }
     
 }
