@@ -161,10 +161,10 @@ contract Election {
         return owner.balance;
     }
 
-    function resetElection() private onlyOwner {
-        delete candidateAddresses;
-        state = State.Created;
+    // function resetElection() private onlyOwner {
+    //     delete candidateAddresses;
+    //     state = State.Created;
         
-    }
+    // }
     
 }
