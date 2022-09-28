@@ -160,11 +160,5 @@ contract Election {
     function getOwnerBalance() public view returns(uint) {
         return owner.balance;
     }
-
-    // function resetElection() private onlyOwner {
-    //     delete candidateAddresses;
-    //     state = State.Created;
-        
-    // }
     
 }
